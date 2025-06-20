@@ -1,0 +1,97 @@
+/* --- Importar la fuente Poppins desde Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* --- Paleta de Colores Verdes Pastel (del ejemplo proporcionado) --- */
+:root {
+    --pastel-green-dark: #A5D6A7;   /* Verde salvia suave */
+    --pastel-green-medium: #C8E6C9; /* Verde menta claro */
+    --pastel-green-light: #E8F5E9;  /* Fondo de la página, un verde muy pálido */
+    --pastel-green-accent: #81C784; /* Verde más vivo para acentos y hovers */
+    --text-dark: #37474F;           /* Gris oscuro para el texto, más suave que el negro */
+    --text-light: #FFFFFF;         /* Texto blanco */
+    --card-bg: #FFFFFF;            /* Fondo de las tarjetas/elementos */
+    --border-color: #DDDDDD;       /* Un color suave para los bordes */
+}
+
+/* --- Estilos Globales --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--pastel-green-light);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 2rem 0; /* Añade espacio arriba y abajo */
+}
+
+/* --- Contenedor Principal y Layout --- */
+.container {
+    max-width: 960px; /* Limita el ancho en pantallas grandes */
+    margin-bottom: 2rem; /* Espacio entre el mapa y el formulario */
+}
+
+/* --- Estilo del Mapa --- */
+#map {
+    height: 500px;
+    border-radius: 12px; /* Bordes redondeados como una tarjeta */
+    box-shadow: 0 4px 12px rgba(55, 71, 79, 0.1); /* Sombra suave */
+    border: 1px solid var(--border-color); /* Un borde sutil */
+}
+
+/* --- Estilo del Formulario (adaptado del estilo .card-custom) --- */
+#formulario {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(55, 71, 79, 0.1);
+    padding: 2rem;
+    max-width: 600px; /* Ancho máximo para el formulario */
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#formulario:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(55, 71, 79, 0.12);
+}
+
+/* --- Estilos para los elementos del formulario --- */
+#formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espacio entre cada elemento del formulario */
+}
+
+#formulario label {
+    font-weight: 600;
+    margin-bottom: -8px; /* Acerca la etiqueta a su campo de entrada */
+    color: var(--text-dark);
+}
+
+#formulario .form-control {
+    border: 1px solid var(--pastel-green-dark);
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#formulario .form-control:focus {
+    border-color: var(--pastel-green-accent);
+    box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.25); /* Sombra al enfocar */
+}
+
+#formulario button {
+    background-color: var(--pastel-green-accent);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem; /* Espacio extra antes del botón */
+}
+
+#formulario button:hover {
+    background-color: var(--pastel-green-dark);
+    transform: translateY(-2px);
+}

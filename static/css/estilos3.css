@@ -1,0 +1,160 @@
+/* --- Importar la fuente Poppins (alternativa si no está en el HTML) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Paleta de Colores Verdes Pastel (Consistente con el estilo anterior) --- */
+:root {
+    --pastel-green-dark: #A5D6A7;   /* Verde salvia suave */
+    --pastel-green-medium: #C8E6C9; /* Verde menta claro */
+    --pastel-green-light: #E8F5E9;  /* Fondo de la página */
+    --pastel-green-accent: #81C784; /* Verde más vivo para acentos */
+    --text-dark: #37474F;           /* Gris oscuro para el texto */
+    --text-light: #FFFFFF;         /* Texto blanco */
+    --card-bg: #FFFFFF;            /* Fondo de la tarjeta */
+}
+
+/* --- Estilos Globales --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--pastel-green-light);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* --- Estilos de Header y Footer (Reutilizados para consistencia) --- */
+.site-header, .site-footer {
+    background-color: var(--pastel-green-dark);
+    color: var(--text-dark);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.site-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* --- Tarjeta Principal del Autor (.author-card) --- */
+.author-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(55, 71, 79, 0.12);
+    padding: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(55, 71, 79, 0.15);
+}
+
+/* --- Layout Flexbox para las columnas de imagen y texto --- */
+.author-content {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    gap: 3rem; /* Espacio entre la imagen y el texto */
+}
+
+/* --- Columna de la Imagen --- */
+.author-image-wrapper {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.author-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+    border: 6px solid var(--pastel-green-medium);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Columna de Texto y Tipografía --- */
+.author-text-wrapper {
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+}
+
+.author-text-wrapper h1 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.author-text-wrapper .subtitle {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--pastel-green-accent);
+}
+
+.separator {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--pastel-green-accent), transparent);
+    margin: 1.5rem 0;
+}
+
+.author-text-wrapper p {
+    font-size: 1rem;
+    color: #546E7A; /* Un gris ligeramente más claro para el cuerpo del texto */
+    margin-bottom: 1rem;
+}
+
+/* --- Enlaces a Redes Sociales --- */
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.25rem; /* Espacio entre iconos */
+}
+
+.social-links a {
+    color: var(--pastel-green-dark);
+    font-size: 1.8rem; /* Tamaño de los iconos */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--pastel-green-accent);
+    transform: translateY(-3px) scale(1.1); /* Efecto de "levantamiento" */
+}
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 768px) {
+    .author-content {
+        flex-direction: column; /* Apila la imagen sobre el texto */
+        text-align: center; /* Centra todo el contenido */
+        gap: 2rem;
+    }
+    
+    .author-card {
+        padding: 2rem;
+    }
+
+    .author-text-wrapper h1 {
+        font-size: 2rem;
+    }
+
+    .separator {
+        background: var(--pastel-green-accent); /* Degradado no se ve bien centrado */
+        width: 80px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .social-links {
+        justify-content: center; /* Centra los iconos */
+    }
+}
