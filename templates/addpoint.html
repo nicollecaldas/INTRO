@@ -20,19 +20,24 @@
         <div id="map"></div>
     </div>
 
-     <div id="formulario">
-        <form action="">
-            <label for="direccion">Dirección:</label> 
+ <div id="formulario">
+        <form>
+            <label for="direccion">Dirección:</label>
             <input class="form-control" type="text" name="direccion" id="direccion">
-            <label for="largo">Largo:</label> 
+
+            <label for="largo">Largo:</label>
             <input class="form-control" type="text" name="largo" id="largo">
+
             <label for="ancho">Ancho:</label>
             <input class="form-control" type="text" name="ancho" id="ancho">
+
             <label for="profundidad">Profundidad:</label>
             <input class="form-control" type="text" name="profundidad" id="profundidad">
-            <input class="btn btn-primary" type="button" value="Registrar Sitio" id="registrar-sitio">
+
+            <!-- El ID de este botón es CRUCIAL -->
+            <input class="btn btn-primary mt-3" type="button" value="Registrar Sitio" id="registrar-sitio">
         </form>
-     </div>
+    </div>
      <script src="../static/js/programa.js"></script>
 </body>
 </html>

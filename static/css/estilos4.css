@@ -1,0 +1,123 @@
+/* --- Importar la fuente Poppins --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Paleta de Colores (Reutilizada para consistencia) --- */
+:root {
+    --pastel-green-dark: #A5D6A7;   /* Verde salvia suave */
+    --pastel-green-medium: #C8E6C9; /* Verde menta claro */
+    --pastel-green-light: #E8F5E9;  /* Fondo de la página */
+    --pastel-green-accent: #81C784; /* Verde más vivo para acentos */
+    --text-dark: #37474F;           /* Gris oscuro para el texto */
+    --text-light: #FFFFFF;         /* Texto blanco */
+    --card-bg: #FFFFFF;            /* Fondo de las tarjetas y tablas */
+    --border-color: #E0E0E0;        /* Color sutil para bordes */
+}
+
+/* --- Estilos Globales --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--pastel-green-light);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* --- Estilos del Título Principal --- */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+/* --- Estilo para el Botón 'Registrar Nuevo Hueco' --- */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--pastel-green-accent);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(129, 199, 132, 0.4);
+    margin-bottom: 2rem;
+}
+
+.btn-primary:hover {
+    background-color: #66BB6A; /* Un tono ligeramente más oscuro del acento */
+    transform: translateY(-3px);
+}
+
+/* --- Contenedor de la Tabla con Sombra (simulando una tarjeta) --- */
+.table-wrapper {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(55, 71, 79, 0.12);
+    overflow: hidden; /* Importante para que los bordes redondeados se apliquen a la tabla */
+}
+
+/* --- Estilos de la Tabla --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    text-align: left;
+}
+
+/* --- Cabecera de la Tabla (<thead>) --- */
+.data-table thead th {
+    background-color: var(--pastel-green-dark);
+    color: var(--text-dark);
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- Cuerpo de la Tabla (<tbody>) --- */
+.data-table tbody td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+/* --- Estilo para filas alternas (efecto cebra) --- */
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--pastel-green-light);
+}
+
+/* --- Efecto hover sobre las filas --- */
+.data-table tbody tr:hover {
+    background-color: var(--pastel-green-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Quitar el borde de la última fila para un look más limpio --- */
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Diseño Responsivo para la Tabla --- */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    /* Hacemos que la tabla sea desplazable horizontalmente en pantallas pequeñas */
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .data-table {
+        min-width: 600px; /* Asegura que la tabla no se aplaste demasiado */
+    }
+}

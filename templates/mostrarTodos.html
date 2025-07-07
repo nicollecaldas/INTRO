@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Huecos</title>
+    <!-- Enlazamos nuestra nueva hoja de estilos -->
+    <link rel="stylesheet" href="../static/css/estilos4.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Listado de Huecos</h1>
+
+        <!-- Usamos la clase .btn-primary para el enlace -->
+        <a href="../templates/addpoint.html" class="btn-primary">Registrar Nuevo Hueco</a>
+
+        <!-- Envolvemos la tabla en .table-wrapper para la sombra y bordes redondeados -->
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Dirección</th>
+                        <th>Ancho (m)</th>
+                        <th>Profundidad (m)</th>
+                        <th>Largo (m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- El bucle de Jinja2 sigue siendo el mismo -->
+                    {% for hueco in huecos %}
+                    <tr>
+                        <td>{{ hueco.direccion }}</td>
+                        <td>{{ hueco.ancho }}</td>
+                        <td>{{ hueco.profundidad }}</td>
+                        <td>{{ hueco.largo }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
