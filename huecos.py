@@ -1,11 +1,11 @@
 from db_config import db
 
 # Asegúrate de que la clase se llama Hueco (con H mayúscula)
-class Hueco(db.Model):
+class huecos(db.Model):
     # ... (el resto del código de tu modelo está bien)
     __tablename__ = 'huecos'
     id = db.Column(db.Integer, primary_key=True)
-    direccion = db.Column(db.String(255), nullable=False)
+    direccion = db.Column(db.String(255))
     ancho = db.Column(db.Float)
     profundidad = db.Column(db.Float)
     largo = db.Column(db.Float)

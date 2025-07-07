@@ -1,59 +1,61 @@
-<html lang="en">
+<!DOCTYPE html>
+<!-- CORRECCIÓN: Idioma a español -->
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar sitio</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-
-     <link rel="stylesheet" href="../static/css/estilos2.css">
+    <title>Registrar Sitio</title>
+    
+    <!-- Archivos CSS (Bootstrap, Leaflet y personalizado) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- CORRECCIÓN: Enlace a CSS usando url_for -->
+    <link rel="stylesheet" href="../static/css/estilos2.css">
 </head>
 <body>
-    <div class="container">
-        <div id="map"></div>
-    </div>
-
-     <div class="container mt-5" style="max-width: 600px;">
+    <div class="container mt-4">
         <h1 class="text-center mb-4">Registrar Información del Hueco</h1>
+
+        <div id="map" class="mb-4"></div>
         
-        <form action="/guardar" method="POST" class="p-4 border rounded-3 bg-white shadow-sm">
+        <!-- CORRECCIÓN: El 'action' debe apuntar a la función de Flask con url_for -->
+        <form action="{{ url_for('agregar') }}" method="POST">
             <div class="mb-3">
                 <label for="direccion" class="form-label">Dirección:</label>
                 <input type="text" class="form-control" id="direccion" name="direccion" required>
             </div>
-
+            
             <div class="mb-3">
                 <label for="largo" class="form-label">Largo (m):</label>
-                <input type="text" class="form-control" id="largo" name="largo">
+                <!-- Es mejor usar type="number" para valores numéricos -->
+                <input type="number" step="0.01" class="form-control" id="largo" name="largo" required>
             </div>
 
             <div class="mb-3">
                 <label for="ancho" class="form-label">Ancho (m):</label>
-                <input type="text" class="form-control" id="ancho" name="ancho">
+                <input type="number" step="0.01" class="form-control" id="ancho" name="ancho" required>
             </div>
 
             <div class="mb-3">
-                <label for="profundidad" class="form-label">Profundidad (m):</label>
-                <input type="text" class="form-control" id="profundidad" name="profundidad">
+                <label for="profundidad" class="form-label">Profundidad (cm):</label>
+                <input type="number" step="0.1" class="form-control" id="profundidad" name="profundidad" required>
             </div>
-            
-            <!-- CORRECCIÓN: El botón está dentro del único formulario y es de tipo "submit" -->
-            <button type="submit" class="btn btn-primary w-100">Guardar Hueco</button>
 
+            <button type="submit" class="btn btn-primary w-100">Guardar Hueco</button>
         </form>
         
         <div class="text-center mt-3">
-            <!-- CORRECCIÓN: Enlazamos a la ruta de Flask usando url_for -->
+            <!-- CORRECCIÓN: Enlace a la RUTA que muestra el listado, no al archivo -->
             <a href="../templates/listado.html">Ver todos los huecos guardados</a>
         </div>
     </div>
-     <script src="../static/js/programa.js"></script>
+
+    <!-- Scripts JS (Bootstrap, Leaflet y personalizado) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- CORRECCIÓN: Enlace a JS usando url_for -->
+    <script src="../static/js/programa.js"></script>
 </body>
 </html>
