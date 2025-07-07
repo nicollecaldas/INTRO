@@ -20,23 +20,39 @@
         <div id="map"></div>
     </div>
 
- <div id="formulario">
-        <form>
-            <label for="direccion">Dirección:</label>
-            <input class="form-control" type="text" name="direccion" id="direccion">
+     <div class="container mt-5" style="max-width: 600px;">
+        <h1 class="text-center mb-4">Registrar Información del Hueco</h1>
+        
+        <form action="/guardar" method="POST" class="p-4 border rounded-3 bg-white shadow-sm">
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección:</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" required>
+            </div>
 
-            <label for="largo">Largo:</label>
-            <input class="form-control" type="text" name="largo" id="largo">
+            <div class="mb-3">
+                <label for="largo" class="form-label">Largo (m):</label>
+                <input type="text" class="form-control" id="largo" name="largo">
+            </div>
 
-            <label for="ancho">Ancho:</label>
-            <input class="form-control" type="text" name="ancho" id="ancho">
+            <div class="mb-3">
+                <label for="ancho" class="form-label">Ancho (m):</label>
+                <input type="text" class="form-control" id="ancho" name="ancho">
+            </div>
 
-            <label for="profundidad">Profundidad:</label>
-            <input class="form-control" type="text" name="profundidad" id="profundidad">
+            <div class="mb-3">
+                <label for="profundidad" class="form-label">Profundidad (m):</label>
+                <input type="text" class="form-control" id="profundidad" name="profundidad">
+            </div>
+            
+            <!-- CORRECCIÓN: El botón está dentro del único formulario y es de tipo "submit" -->
+            <button type="submit" class="btn btn-primary w-100">Guardar Hueco</button>
 
-            <!-- El ID de este botón es CRUCIAL -->
-            <input class="btn btn-primary mt-3" type="button" value="Registrar Sitio" id="registrar-sitio">
         </form>
+        
+        <div class="text-center mt-3">
+            <!-- CORRECCIÓN: Enlazamos a la ruta de Flask usando url_for -->
+            <a href="../templates/listado.html">Ver todos los huecos guardados</a>
+        </div>
     </div>
      <script src="../static/js/programa.js"></script>
 </body>

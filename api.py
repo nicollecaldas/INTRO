@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from db_config import db
-from huecos import huecos
+from huecos import Hueco
+import huecos
 
 class Programa:
     def __init__(self):
@@ -17,7 +18,7 @@ class Programa:
         self.app.run(debug=True)
 
     def buscarTodos(self):
-        return render_template('mostrarTodos.html', huecos=huecos.query.all())
+        return render_template('listado.html', huecos=huecos.query.all())
     def agregar(self):
 
         if request.method == 'POST':
